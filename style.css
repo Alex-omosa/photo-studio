@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
+@font-face {
+  src: url(/fonts/TheHistoriaDemo.ttf);
+  font-family: historia;
+}
+/* html, body {
+	margin: 0;
+	padding: 0;
+	height:100%;
+	width: 100%;
+} */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --anim: alternate-gradient 5s alternate infinite;
+  --background-size: 300% 300%;
+  --bcg-grad: linear-gradient(60deg, #ffe838, #fd57bf) 0 50%;
+  --bcg-grad-social: linear-gradient(60deg, #fd57bf, #ffe838) 0 50%;
+  --background-size-social: 300% 300%;
+}
+html {
+  font-size: 10px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  /* overflow: hidden; */
+  max-width: 120rem;
+  /* position: relative; */
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45vw;
+  min-height: 100%;
+  z-index: 999;
+}
+h2 {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 200%;
+  font-weight: 700;
+  color: #2c2c2c;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 40px;
+}
+p {
+  font-size: 1.6rem;
+}
+section {
+  padding: 45px 15px;
+}
+.humburger {
+  /* top: 2rem;
+  left: 5rem; */
+  top: 10px;
+  left: 15px;
+  height: 5rem;
+  width: 5rem;
+  background-color: #eee;
+  border-radius: 0.4rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(14, 13, 13, 0.4),
+    -0.5rem -0.5rem 1rem rgba(244, 244, 244, 0.4);
+  cursor: pointer;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  transition: box-shadow 650ms ease-in-out;
+}
+.humburger:hover {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(15, 15, 15, 0.26);
+  border-right: 1px solid rgba(15, 15, 15, 0.26);
+  border-left: 1px solid rgba(15, 15, 15, 0.068);
+  border-top: 1px solid rgba(15, 15, 15, 0.068);
+}
+.open .humburger {
+  box-shadow: 0.5rem 0.5rem 5rem rgba(34, 33, 33, 1),
+    -0.5rem -0.5rem 5rem rgba(7, 7, 7, 1);
+}
+.bar {
+  height: 1px;
+  width: 4rem;
+  background-color: #000;
+  position: relative;
+  transition: all 450ms ease-in;
+}
+.bar::before,
+.bar::after {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  height: inherit;
+  width: inherit;
+  transition: all 450ms ease-in-out;
+}
+.bar::before {
+  top: 1rem;
+}
+.bar::after {
+  top: -1rem;
+}
+.open .bar::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.open .bar::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.open .bar {
+  background-color: transparent;
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url(/img/sunset.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} /*Hero Content*/
+.content {
+  color: #ffffff;
+}
+.content h1 {
+  text-transform: capitalize;
+  font-size: 7rem;
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+}
+.content p {
+  font-size: 3rem;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  margin-left: -40px;
+}
+.nav-list {
+  height: 100%;
+  width: 45%;
+  background-color: #eee;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translate(-100%);
+  transition: all 650ms ease-in-out;
+}
+.nav-active {
+  transform: translate(0);
+}
+.nav-brand i {
+  height: 100%;
+  width: 100%;
+  color: #000;
+  font-size: 10rem;
+  margin: 3rem 0;
+  background: var(--bcg-grad);
+  background-size: var(--background-size);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: var(--anim);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  /* padding: 50% auto; */
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #c2c2c2;
+  font-size: 4rem;
+  font-family: historia;
+  transition: all 650ms ease-in-out;
+}
+.nav-item a {
+  color: #464444;
+  padding: 0 50px;
+  transition: all 650ms ease-in-out;
+}
+.nav-item:hover {
+  border-bottom: 1px solid #444343;
+  background: var(--bcg-grad);
+  background-size: var(--background-size);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: var(--anim);
+}
+.nav-item-social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.nav-social-links a {
+  text-decoration: none;
+  font-size: 3rem;
+  color: transparent;
+  padding: 0 2rem;
+}
+.nav-social-links i {
+  background: var(--bcg-grad-social);
+  background-size: var(--background-size-social);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: var(--anim);
+}
+.nav-social-links a:hover {
+  color: #000;
+}
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-areas: "img content content";
+}
+.about-content {
+  grid-area: content;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-content h2 {
+  margin-bottom: 40px;
+}
+.section-side-bar {
+  grid-area: img;
+  padding: 25px 0;
+}
+.img-collection {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+/*animations*/
+@keyframes alternate-gradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes navsanimation {
+  from {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+.cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-areas: "services bar bar";
+}
+
+.spacer {
+  height: 3rem;
+  min-height: 10rem;
+}
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "cont cont cont  servs";
+}
+.services-content {
+  grid-area: cont;
+}
+.services-side-bar {
+  grid-area: servs;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: #c2c2c2;
+  padding: 4rem;
+}
